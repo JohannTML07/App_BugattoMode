@@ -37,7 +37,7 @@ export function ReceiptDocument({ empleadaNombre, fechaInicio, fechaFin, totalCe
         </View>
 
         <View style={styles.section}>
-          <Text style={{ fontSize: 14, marginBottom: 5 }}>Empleada: {empleadaNombre}</Text>
+          <Text style={{ fontSize: 14, marginBottom: 5 }}>Emplead@: {empleadaNombre}</Text>
           <Text style={{ fontSize: 12, color: '#444' }}>Periodo: {fechaInicio} al {fechaFin}</Text>
         </View>
 
