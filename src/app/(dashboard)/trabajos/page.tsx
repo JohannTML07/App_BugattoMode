@@ -3,7 +3,7 @@ import { empleada, conceptoPago, trabajoRealizado } from '@/lib/db/schema'
 import { createTrabajo, deleteTrabajo } from './actions'
 import { eq, isNull, desc } from 'drizzle-orm'
 import { Trash2, Briefcase, PlusCircle } from 'lucide-react'
-import { ConceptoSelect } from '@/components/ConceptoSelect'
+import { SearchableSelect } from '@/components/SearchableSelect'
 
 export const dynamic = 'force-dynamic'
 
@@ -45,21 +45,23 @@ export default async function TrabajosPage() {
         <form action={createTrabajo} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">Emplead@</label>
-            <select 
-              name="empleada_id" 
-              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm w-full h-[46px]"
-              required
-            >
-              <option value="">Seleccionar...</option>
-              {empleadasList.map(e => (
-                <option key={e.id} value={e.id}>{e.nombre}</option>
-              ))}
-            </select>
+            <SearchableSelect
+              name="empleada_id"
+              placeholder="Seleccionar emplead@..."
+              searchPlaceholder="Buscar emplead@..."
+              options={empleadasList.map(e => ({
+                id: e.id,
+                label: e.nombre
+              }))}
+            />
           </div>
           
           <div className="flex flex-col gap-1.5 sm:col-span-1 lg:col-span-2">
             <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">Concepto / Trabajo</label>
-            <ConceptoSelect 
+            <SearchableSelect
+              name="concepto_id"
+              placeholder="Buscar concepto..."
+              searchPlaceholder="Escribe para buscar..."
               options={conceptosList.map(c => ({
                 id: c.id,
                 label: `${c.nombre} ($${(c.precioUnitario / 100).toFixed(2)})`
