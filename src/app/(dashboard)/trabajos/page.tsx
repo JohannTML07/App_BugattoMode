@@ -47,7 +47,7 @@ export default async function TrabajosPage() {
             <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">Emplead@</label>
             <SearchableSelect
               name="empleada_id"
-              placeholder="Seleccionar emplead@..."
+              placeholder="Emplead@"
               searchPlaceholder="Buscar emplead@..."
               options={empleadasList.map(e => ({
                 id: e.id,
