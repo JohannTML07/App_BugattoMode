@@ -10,6 +10,18 @@ export const dynamic = 'force-dynamic'
 export default async function CuentasPage() {
   const empleadasList = await db.select().from(empleada).where(isNull(empleada.deletedAt))
   
+  const now = new Date()
+  const dayOfWeek = now.getDay()
+  const daysToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek
+  
+  const monday = new Date(now)
+  monday.setDate(now.getDate() + daysToMonday)
+  const defaultFechaInicio = monday.toISOString().split('T')[0]
+  
+  const saturday = new Date(now)
+  saturday.setDate(now.getDate() + daysToMonday + 5)
+  const defaultFechaFin = saturday.toISOString().split('T')[0]
+  
   const cuentasList = await db
     .select({
       id: cuentaSemanal.id,
@@ -61,6 +73,7 @@ export default async function CuentasPage() {
             <input 
               type="date" 
               name="fecha_inicio" 
+              defaultValue={defaultFechaInicio}
               className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm w-full h-[46px]"
               required
             />
@@ -71,6 +84,7 @@ export default async function CuentasPage() {
             <input 
               type="date" 
               name="fecha_fin" 
+              defaultValue={defaultFechaFin}
               className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm w-full h-[46px]"
               required
             />
