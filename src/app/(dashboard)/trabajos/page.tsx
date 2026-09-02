@@ -3,6 +3,7 @@ import { empleada, conceptoPago, trabajoRealizado } from '@/lib/db/schema'
 import { createTrabajo, deleteTrabajo } from './actions'
 import { eq, isNull, desc } from 'drizzle-orm'
 import { Trash2, Briefcase, PlusCircle } from 'lucide-react'
+import { ConceptoSelect } from '@/components/ConceptoSelect'
 
 export const dynamic = 'force-dynamic'
 
@@ -58,16 +59,12 @@ export default async function TrabajosPage() {
           
           <div className="flex flex-col gap-1.5 sm:col-span-1 lg:col-span-2">
             <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">Concepto / Trabajo</label>
-            <select 
-              name="concepto_id" 
-              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm w-full h-[46px]"
-              required
-            >
-              <option value="">Seleccionar...</option>
-              {conceptosList.map(c => (
-                <option key={c.id} value={c.id}>{c.nombre} (${(c.precioUnitario / 100).toFixed(2)})</option>
-              ))}
-            </select>
+            <ConceptoSelect 
+              options={conceptosList.map(c => ({
+                id: c.id,
+                label: `${c.nombre} ($${(c.precioUnitario / 100).toFixed(2)})`
+              }))} 
+            />
           </div>
           
           <div className="flex flex-col gap-1.5">
