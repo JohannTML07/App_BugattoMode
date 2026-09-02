@@ -1,0 +1,20 @@
+[
+  {
+    "epic": "01-setup.md",
+    "id": "init-project",
+    "name": "Inicialización del Proyecto",
+    "description": "Crear proyecto Next.js y tipar stack.",
+    "files": ["package.json", "next.config.ts", "tsconfig.json"],
+    "verify": ["pnpm build; test $? -eq 0"],
+    "dependencies": []
+  },
+  {
+    "epic": "02-database.md",
+    "id": "db-schema",
+    "name": "Configuración de Base de datos",
+    "description": "Conectar a Postgres via Drizzle e iniciar modelo.",
+    "files": ["src/lib/db/schema.ts", "drizzle.config.ts", ".env"],
+    "verify": ["pnpm exec drizzle-kit generate; test $? -eq 0"],
+    "dependencies": ["init-project"]
+  }
+]

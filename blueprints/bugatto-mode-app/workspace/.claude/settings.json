@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "pnpm build",
+      "pnpm next build",
+      "pnpm exec drizzle-kit generate"
+    ]
+  }
+}
