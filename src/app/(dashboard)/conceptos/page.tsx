@@ -27,7 +27,7 @@ export default async function ConceptosPage() {
             type="text" 
             name="nombre" 
             placeholder="Nombre del trabajo" 
-            className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm"
+            className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm text-gray-900"
             required
           />
           <div className="relative">
@@ -38,7 +38,7 @@ export default async function ConceptosPage() {
               placeholder="0.00"
               step="0.50"
               min="0.50"
-              className="w-full md:w-40 bg-gray-50 border border-gray-200 rounded-xl pl-8 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm"
+              className="w-full md:w-40 bg-gray-50 border border-gray-200 rounded-xl pl-8 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm text-gray-900"
               required
             />
           </div>

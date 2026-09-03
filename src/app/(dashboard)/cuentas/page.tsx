@@ -74,7 +74,7 @@ export default async function CuentasPage() {
               type="date" 
               name="fecha_inicio" 
               defaultValue={defaultFechaInicio}
-              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm w-full h-[46px]"
+              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm text-gray-900 w-full h-[46px]"
               required
             />
           </div>
@@ -85,7 +85,7 @@ export default async function CuentasPage() {
               type="date" 
               name="fecha_fin" 
               defaultValue={defaultFechaFin}
-              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm w-full h-[46px]"
+              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm text-gray-900 w-full h-[46px]"
               required
             />
           </div>

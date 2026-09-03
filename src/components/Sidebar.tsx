@@ -20,7 +20,7 @@ export function Sidebar() {
   return (
     <>
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between bg-white border-b border-gray-100 p-4 sticky top-0 z-20">
+      <div className="md:hidden flex items-center justify-between bg-white border-b border-gray-100 p-4 sticky top-0 z-20 w-full shadow-xs">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 bg-yellow-50 rounded-lg flex items-center justify-center text-indigo-600 font-bold text-sm">
             B
